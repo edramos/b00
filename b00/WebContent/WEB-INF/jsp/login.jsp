@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Castor | Login</title>
-<jsp:include page="../comps/headMandatory.jsp"/>
+<jsp:include page="comps/headMandatory.jsp"/>
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link href="assets/global/plugins/select2/select2.css" rel="stylesheet" type="text/css"/>
 <link href="assets/admin/pages/css/login3.css" rel="stylesheet" type="text/css"/>
@@ -157,8 +157,8 @@
 	<!-- END REGISTRATION FORM -->
 </div>
 <!-- END LOGIN -->
-<jsp:include page="../comps/footer.jsp"/>
-<jsp:include page="../comps/corePlugins.jsp"/>
+<jsp:include page="comps/footer.jsp"/>
+<jsp:include page="comps/corePlugins.jsp"/>
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>

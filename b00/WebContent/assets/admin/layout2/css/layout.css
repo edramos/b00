@@ -235,7 +235,7 @@ Page Header
   position: absolute;
   top: 17px;
   right: 9px;
-  font-weight: 300;
+  font-weight: 300px;
   padding: 3px 6px;
 }
 .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:focus {
@@ -1247,7 +1247,7 @@ Page sidebar
   }
   .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover {
     width: 195px !important;
-    display: block;
+    display: absolute;
     z-index: 10000;
   }
   .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu {
@@ -1258,7 +1258,7 @@ Page sidebar
   }
   .page-sidebar-closed.page-sidebar-fixed.page-sidebar-reversed .page-sidebar:hover {
     width: 195px !important;
-    display: block;
+    display: absolute;
     z-index: 10000;
     margin-left: -195px !important;
   }

@@ -1,14 +1,30 @@
 var MapsGoogle = function () {
 
-    var mapBasic = function () {
-        new GMaps({
-            div: '#gmap_basic',
-            lat: -12.043333,
-            lng: -77.028333
-        });
-    }
+	var init_map = function() {
+		var var_location = new google.maps.LatLng(-12.045937, -77.030530);
 
-    var mapMarker = function () {
+	    var var_mapoptions = {
+	      center: var_location,
+	      zoom: 4
+	    };
+
+		var var_marker = new google.maps.Marker({
+			position: var_location,
+			map: var_map,
+			title:"Lima"});
+
+	    var var_map = new google.maps.Map(document.getElementById("map-container"),
+	        var_mapoptions);
+
+		var_marker.setMap(var_map);	
+
+	  }
+
+	
+	
+	
+
+    /*var mapMarker = function () {
         var map = new GMaps({
             div: '#gmap_marker',
            lat: -51.38739,
@@ -36,9 +52,9 @@ var MapsGoogle = function () {
             }
         });
         map.setZoom(5);
-    }
+    }*/
 
-    var mapPolylines = function () {
+    /*var mapPolylines = function () {
         var map = new GMaps({
             div: '#gmap_polylines',
             lat: -12.043333,
@@ -65,9 +81,9 @@ var MapsGoogle = function () {
             strokeOpacity: 0.6,
             strokeWeight: 6
         });
-    }
+    }*/
 
-    var mapGeolocation = function () {
+    /*var mapGeolocation = function () {
 
         var map = new GMaps({
             div: '#gmap_geo',
@@ -89,11 +105,68 @@ var MapsGoogle = function () {
                 //alert("Geolocation Done!");
             }
         });
-    }
+    }*/
 
     var mapGeocoding = function () {
-
-        var map = new GMaps({
+    	var map = null;
+    	var myMarker = null;
+    	
+    	map = new google.maps.Map(document.getElementById('gmap_geocoding'), {
+    	    zoom: 7,
+    	    center: new google.maps.LatLng(-12.045937, -77.030530),
+    	    mapTypeId: google.maps.MapTypeId.ROADMAP
+    	});    	
+    	
+    	
+    	var handleAction = function(){
+    		var text = $.trim($('#gmap_geocoding_address').val());
+	        geocoder = new google.maps.Geocoder();
+	        
+	        geocoder.geocode({'address':text}, function(results, status){
+	        	var result; 
+	        	
+	            if(status == google.maps.GeocoderStatus.OK){
+	                result = results[0]; //Take only the first result returned from geocoding
+	                
+	                map = new google.maps.Map(document.getElementById('gmap_geocoding'), {
+	            	    zoom: 15,
+	            	    mapTypeId: google.maps.MapTypeId.ROADMAP
+	            	});
+	                
+	                myMarker = new google.maps.Marker({
+	            	    position: results[0].geometry.location,
+	            	    draggable: true
+	            	});
+	            	
+	            	google.maps.event.addListener(myMarker, 'dragend', function(e) {
+	            		alert('Hi' + e.latLng.lat().toFixed(6) + ', ' + e.latLng.lng().toFixed(6));
+	            		map.setCenter(myMarker.position);
+	            	});
+	                
+	                //map.setCenter(results[0].geometry.location);
+	                
+	                map.setCenter(myMarker.position);
+	            	myMarker.setMap(map);
+	            }else{
+	            	result = null;
+	                //alert('Geocode of Address: \"'+ address +'\" was not successful for the following reason: '+status);
+	            }            
+	               
+	        });      
+    	    
+    		
+    		
+    		
+    		
+    		
+    	}
+    	
+    	$('#gmap_geocoding_btn').click(function (e) {
+            e.preventDefault();
+            handleAction();
+        });
+    	
+        /*var map = new GMaps({
             div: '#gmap_geocoding',
             lat: -12.043333,
             lng: -77.028333
@@ -109,13 +182,16 @@ var MapsGoogle = function () {
                         map.setCenter(latlng.lat(), latlng.lng());
                         map.addMarker({
                             lat: latlng.lat(),
-                            lng: latlng.lng()
+                            lng: latlng.lng(),
+                            drag: true,
                         });
                         Metronic.scrollTo($('#gmap_geocoding'));
                     }
                 }
             });
         }
+        
+        
 
         $('#gmap_geocoding_btn').click(function (e) {
             e.preventDefault();
@@ -128,11 +204,11 @@ var MapsGoogle = function () {
                 e.preventDefault();
                 handleAction();
             }
-        });
+        });*/
 
     }
 
-    var mapPolygone = function () {
+   /*var mapPolygone = function () {
         var map = new GMaps({
             div: '#gmap_polygons',
             lat: -12.043333,
@@ -154,9 +230,9 @@ var MapsGoogle = function () {
             fillColor: '#BBD8E9',
             fillOpacity: 0.6
         });
-    }
+    }*/
 
-    var mapRoutes = function () {
+    /*var mapRoutes = function () {
 
         var map = new GMaps({
             div: '#gmap_routes',
@@ -184,18 +260,18 @@ var MapsGoogle = function () {
                 }
             });
         });
-    }
+    }*/
 
     return {
         //main function to initiate map samples
         init: function () {
-            mapBasic();
-            mapMarker();
-            mapGeolocation();
+        	init_map();
+            //mapMarker();
+            //mapGeolocation();
             mapGeocoding();
-            mapPolylines();
+            /*mapPolylines();
             mapPolygone();
-            mapRoutes();
+            mapRoutes();*/
         }
 
     };

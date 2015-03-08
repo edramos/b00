@@ -52,10 +52,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "toLogout")
-	public String toLogout(HttpServletRequest req){
+	public String toLogout(HttpServletRequest req, Model model){
 		String path = "";
 		
 		if(us.logout(req)){
+			model.addAttribute("msg", "Sesion terminada");
 			path = "login";
 		}
 		

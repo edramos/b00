@@ -15,25 +15,36 @@
 				<a href="toDashboard"><i class="icon-home"></i><span class="title">Dashboard</span></a>
 			</li>
 			<li>
-				<a href="javascript:;"><i class="icon-basket"></i>
-				<span class="title">Convocatorias</span>
+				<a href="javascript:;"><i class="icon-share"></i>
+				<span class="title">Proyectos</span>
 				<span class="arrow "></span>
 				</a>
 				<ul class="sub-menu">
-					<li><a href="toCrearConvocatoria"><i class="icon-home"></i>Crear Convocatoria</a></li>
-					<li><a href="#"><i class="icon-basket"></i>Buscar Convocatoria</a></li>
+					<li><a href="toCrearConvocatoria"><i class="icon-share"></i>Crear Proyecto</a></li>
+					<li><a href="#"><i class="icon-magnifier"></i>Buscar Proyecto</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="javascript:;"><i class="icon-rocket"></i>
-				<span class="title">Propuestas</span>
+				<span class="title">Ordenes</span>
 				<span class="arrow "></span>
 				</a>
 				<ul class="sub-menu">
-					<li><a href="#"><span class="badge badge-warning">new</span>Crear Propuesta</a></li>
-					<li><a href="#">Buscar Propuesta</a></li>
+					<li><a href="#"><span class="badge badge-warning">new</span>Crear Orden</a></li>
+					<li><a href="#">Buscar Orden</a></li>
 				</ul>
 			</li>
+			<li>
+				<a href="javascript:;"><i class="icon-rocket"></i>
+				<span class="title">Facturas</span>
+				<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li><a href="#"><span class="badge badge-warning">new</span>Crear Factura</a></li>
+					<li><a href="#">Buscar Factura</a></li>
+				</ul>
+			</li>
+			
 			<li>
 				<a href="javascript:;"><i class="icon-diamond"></i>
 				<span class="title">Capacitaciones</span>
@@ -102,69 +113,7 @@
 				</ul>
 			</li>
 			
-			<li>
-				<a href="javascript:;">
-				<i class="icon-folder"></i>
-				<span class="title">Multi Level Menu</span>
-				<span class="arrow "></span>
-				</a>
-				<ul class="sub-menu">
-					<li>
-						<a href="javascript:;">
-						<i class="icon-settings"></i> Item 1 <span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="javascript:;">
-								<i class="icon-user"></i>
-								Sample Link 1 <span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<a href="#"><i class="icon-power"></i> Sample Link 1</a>
-									</li>
-									<li>
-										<a href="#"><i class="icon-paper-plane"></i> Sample Link 1</a>
-									</li>
-									<li>
-										<a href="#"><i class="icon-star"></i> Sample Link 1</a>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="#"><i class="icon-camera"></i> Sample Link 1</a>
-							</li>
-							<li>
-								<a href="#"><i class="icon-link"></i> Sample Link 2</a>
-							</li>
-							<li>
-								<a href="#"><i class="icon-pointer"></i> Sample Link 3</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="javascript:;">
-						<i class="icon-globe"></i> Item 2 <span class="arrow"></span>
-						</a>
-						<ul class="sub-menu">
-							<li>
-								<a href="#"><i class="icon-tag"></i> Sample Link 1</a>
-							</li>
-							<li>
-								<a href="#"><i class="icon-pencil"></i> Sample Link 1</a>
-							</li>
-							<li>
-								<a href="#"><i class="icon-graph"></i> Sample Link 1</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">
-						<i class="icon-bar-chart"></i>
-						Item 3 </a>
-					</li>
-				</ul>
-			</li>
+			
 		</ul>
 		<!-- END SIDEBAR MENU -->
 	</div>

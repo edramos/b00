@@ -106,7 +106,6 @@ Page Header
   margin: 23px 20px 0 0;
   display: inline-block;
   width: 30px;
-  float: left;
 }
 .page-header.navbar .search-form .input-group {
   border-radius: 25px !important;
@@ -179,9 +178,9 @@ Page Header
   margin-top: 6px;
 }
 .page-header.navbar .top-menu {
-  display: inline-block;
   margin: 0;
   padding: 0;
+  float: right;
 }
 .page-header.navbar .top-menu .navbar-nav {
   padding: 0;
@@ -671,7 +670,6 @@ Page Header
   .page-header.navbar .top-menu {
     margin: 1px 0 0 0;
     padding: 0;
-    float: right;
   }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle {
     padding: 29px 8px 25px 8px;
@@ -1184,7 +1182,7 @@ Page sidebar
   }
   .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover {
     width: 235px !important;
-    display: block;
+    display: absolute;
     z-index: 10000;
   }
   .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu {
@@ -1195,7 +1193,7 @@ Page sidebar
   }
   .page-sidebar-closed.page-sidebar-fixed.page-sidebar-reversed .page-sidebar:hover {
     width: 235px !important;
-    display: block;
+    display: absolute;
     z-index: 10000;
     margin-left: -235px !important;
   }
@@ -1336,8 +1334,8 @@ Page sidebar
     border-right: 15px solid transparent;
   }
 }
-@media (max-width: 767px) {
-  /* 767px */
+@media (max-width: 480px) {
+  /* 480px */
   /* Page sidebar */
   .page-sidebar,
   .page-sidebar.in {

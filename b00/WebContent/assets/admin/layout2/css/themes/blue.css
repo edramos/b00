@@ -404,6 +404,9 @@ Page Footer
     background: #17C4BB;
     /* Top menu */
   }
+  .page-header-fixed-mobile .page-header.navbar .top-menu {
+    background-color1: #ffffff;
+  }
   .page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:hover {
     background-color: #eff1f6;
   }

@@ -17,3 +17,11 @@ Rounded Portlets
 	border-radius: 0px 0px 4px 4px !important;
 }
 */
+
+.page-content-wrapper .page-content{
+	padding: 0px 0px 0px 20px;
+}
+
+.table .table-scrollable{
+	margin: 0px 0px 0px 0px;
+}
