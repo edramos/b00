@@ -34,7 +34,7 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="index.html" method="post">
+	<form class="login-form" action="toLogin" method="post">
 		<h3 class="form-title">Login</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
