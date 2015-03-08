@@ -16,7 +16,7 @@ public class Oficina {
 	private Integer idOficina;
 	
 	//References
-	@ManyToOne @JoinColumn(name = "idEmpresa")
+	@ManyToOne @JoinColumn(name = "idempresa")
 	private Empresa oficinaEmpresa;
 	
 	@Column(length = 90, nullable = true)

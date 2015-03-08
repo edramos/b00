@@ -9,17 +9,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity @Table(name = "ordendetalle")
 public class OrdenDetalle {
 
 	@Id @GeneratedValue @Column(name = "idordendetalle")
 	private Integer idOrdenDetalle;
 	
 	//References
-	@ManyToOne @JoinColumn(name = "idOrder")
+	@ManyToOne @JoinColumn(name = "idorder")
 	private Orden ordendetalleOrden;
-	@ManyToOne @JoinColumn(name = "idProveedor")
+	@ManyToOne @JoinColumn(name = "idproveedor")
 	private Proveedor ordendetalleProveedor; 
 	
 	@Column(nullable = false)

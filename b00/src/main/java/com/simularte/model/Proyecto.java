@@ -17,7 +17,7 @@ public class Proyecto {
 	private Integer idProyecto;
 	
 	//References
-	@ManyToOne @JoinColumn(name = "idUsuario")
+	@ManyToOne @JoinColumn(name = "idusuario")
 	private Usuario proyectoUsuario;	
 	@OneToOne(mappedBy = "proyecto")
 	private Cliente cliente;
