@@ -17,7 +17,7 @@ public class Proveedor {
 	
 	//References
 	@OneToMany(mappedBy = "ordendetalleProveedor")
-	private Collection<OrdenDetalle> ordDet;
+	private Collection<ProyectoDetalle> ordDet;
 	
 	@Column(length = 180, nullable = true)
 	private String nombre;
@@ -34,10 +34,10 @@ public class Proveedor {
 	public void setIdProveedor(Integer idProveedor) {
 		this.idProveedor = idProveedor;
 	}
-	public Collection<OrdenDetalle> getOrdDet() {
+	public Collection<ProyectoDetalle> getOrdDet() {
 		return ordDet;
 	}
-	public void setOrdDet(Collection<OrdenDetalle> ordDet) {
+	public void setOrdDet(Collection<ProyectoDetalle> ordDet) {
 		this.ordDet = ordDet;
 	}
 	public String getNombre() {

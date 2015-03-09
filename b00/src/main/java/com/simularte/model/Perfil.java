@@ -46,6 +46,8 @@ public class Perfil {
 	private String celularSecundario;
 	@Column(length = 30, nullable = false)
 	private String rol;
+	@Column(length = 30, nullable = false)
+	private String tipo;
 	
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
@@ -142,6 +144,12 @@ public class Perfil {
 	}
 	public void setRol(String rol) {
 		this.rol = rol;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	public Timestamp getFechaCreacion() {
 		return fechaCreacion;

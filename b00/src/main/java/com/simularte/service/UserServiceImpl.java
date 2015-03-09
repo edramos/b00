@@ -72,6 +72,7 @@ public class UserServiceImpl implements UserService{
 				tqPerfil.setParameter("idusuario", usuarioSR.getIdUsuario());
 				
 				Perfil profileSR = tqPerfil.getSingleResult();
+				session.setAttribute("tipo", profileSR.getTipo());
 				session.setAttribute("rol", profileSR.getRol());
 				
 				TypedQuery<Empresa> tqEmpresa = em.createQuery("SELECT e FROM Empresa e JOIN e.usuario u WHERE u.idUsuario =:idusuario", Empresa.class);

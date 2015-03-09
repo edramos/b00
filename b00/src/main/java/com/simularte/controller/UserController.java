@@ -22,7 +22,7 @@ public class UserController {
 	public String toLogin(){
 		return "login";
 	}
-
+	
 	@RequestMapping(value = "toCrearCuenta", method = RequestMethod.POST)
 	public String toCrearCuenta(@ModelAttribute("usuario")Usuario usuario, Model model){
 		String path = "";
@@ -42,10 +42,17 @@ public class UserController {
 		String path = "login";
 				
 		if(us.login(username, password, req)){
-			path = "empresa/dashboard";
+			switch(req.getSession().getAttribute("tipo").toString()){
+			case "empresa":
+				path = "empresa/dashboard";
+				break;
+			case "cliente":
+				break;
+			case "proveedor":
+				break;
+			}
 		}else{
 			model.addAttribute("msg","Login incorrecto");
-			path = "login";
 		}
 		
 		return path;
@@ -58,6 +65,24 @@ public class UserController {
 		if(us.logout(req)){
 			model.addAttribute("msg", "Sesion terminada");
 			path = "login";
+		}
+		
+		return path;
+	}
+	
+	//NAVIGATION
+	@RequestMapping("toMyCompany")
+	public String toMyCompany(HttpServletRequest req){
+		String path = "";
+		
+		switch(req.getSession().getAttribute("tipo").toString()){
+		case "empresa":
+			path = "empresa/miCompania";
+			break;
+		case "cliente":
+			break;
+		case "proveedor":
+			break;
 		}
 		
 		return path;

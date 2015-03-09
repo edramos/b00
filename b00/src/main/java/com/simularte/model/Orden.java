@@ -23,7 +23,7 @@ public class Orden {
 	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "idproyecto")
 	private Proyecto proyecto;
 	@OneToMany(mappedBy = "ordendetalleOrden")
-	private Collection<OrdenDetalle> ordDet;
+	private Collection<ProyectoDetalle> ordDet;
 	
 	@Column(length = 30, nullable = false)
 	private String codigo;
@@ -48,10 +48,10 @@ public class Orden {
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
 	}
-	public Collection<OrdenDetalle> getOrdDet() {
+	public Collection<ProyectoDetalle> getOrdDet() {
 		return ordDet;
 	}
-	public void setOrdDet(Collection<OrdenDetalle> ordDet) {
+	public void setOrdDet(Collection<ProyectoDetalle> ordDet) {
 		this.ordDet = ordDet;
 	}
 	public String getCodigo() {

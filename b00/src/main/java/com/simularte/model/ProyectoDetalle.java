@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity @Table(name = "ordendetalle")
-public class OrdenDetalle {
+public class ProyectoDetalle {
 
 	@Id @GeneratedValue @Column(name = "idordendetalle")
 	private Integer idOrdenDetalle;

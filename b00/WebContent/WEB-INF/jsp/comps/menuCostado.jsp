@@ -25,7 +25,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="javascript:;"><i class="icon-rocket"></i>
+				<a href="javascript:;"><i class="icon-basket"></i>
 				<span class="title">Ordenes</span>
 				<span class="arrow "></span>
 				</a>
@@ -35,7 +35,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="javascript:;"><i class="icon-rocket"></i>
+				<a href="javascript:;"><i class="icon-speedometer"></i>
 				<span class="title">Facturas</span>
 				<span class="arrow "></span>
 				</a>
