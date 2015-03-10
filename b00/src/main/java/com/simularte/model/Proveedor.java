@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -15,9 +17,13 @@ public class Proveedor {
 	@Id @GeneratedValue @Column(name = "idproveedor")	
 	private Integer idProveedor;
 	
+	@ManyToOne
+	@JoinColumn(name = "idempresa", nullable = false)
+	private Empresa proveedorEmpresa;
+	
 	//References
-	@OneToMany(mappedBy = "ordendetalleProveedor")
-	private Collection<ProyectoDetalle> ordDet;
+	@OneToMany(mappedBy = "proyectoDetProveedor")
+	private Collection<ProyectoDetalle> proyectosDetalleProv;
 	
 	@Column(length = 180, nullable = true)
 	private String nombre;
@@ -27,18 +33,24 @@ public class Proveedor {
 	@Column(length = 30, nullable = false)
 	private String estado;
 	
-	
 	public Integer getIdProveedor() {
 		return idProveedor;
 	}
 	public void setIdProveedor(Integer idProveedor) {
 		this.idProveedor = idProveedor;
 	}
-	public Collection<ProyectoDetalle> getOrdDet() {
-		return ordDet;
+	public Empresa getProveedorEmpresa() {
+		return proveedorEmpresa;
 	}
-	public void setOrdDet(Collection<ProyectoDetalle> ordDet) {
-		this.ordDet = ordDet;
+	public void setProveedorEmpresa(Empresa proveedorEmpresa) {
+		this.proveedorEmpresa = proveedorEmpresa;
+	}
+	public Collection<ProyectoDetalle> getProyectosDetalleProv() {
+		return proyectosDetalleProv;
+	}
+	public void setProyectosDetalleProv(
+			Collection<ProyectoDetalle> proyectosDetalleProv) {
+		this.proyectosDetalleProv = proyectosDetalleProv;
 	}
 	public String getNombre() {
 		return nombre;
@@ -58,4 +70,5 @@ public class Proveedor {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
 }

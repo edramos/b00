@@ -11,44 +11,55 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity @Table(name = "ordendetalle")
+@Entity @Table(name = "proyectodetalle")
 public class ProyectoDetalle {
 
-	@Id @GeneratedValue @Column(name = "idordendetalle")
-	private Integer idOrdenDetalle;
+	@Id @GeneratedValue @Column(name = "idproyectodetalle")
+	private Integer idProyectoDetalle;
 	
 	//References
-	@ManyToOne @JoinColumn(name = "idorder")
-	private Orden ordendetalleOrden;
-	@ManyToOne @JoinColumn(name = "idproveedor")
-	private Proveedor ordendetalleProveedor; 
+	@ManyToOne 
+	@JoinColumn(name = "idcliente", nullable = false)
+	private Cliente proyectoDetCliente;
+	
+	@ManyToOne 
+	@JoinColumn(name = "idproveedor", nullable = false)
+	private Proveedor proyectoDetProveedor; 
+	
+	@ManyToOne 
+	@JoinColumn(name = "idproyecto", nullable = false)
+	private Proyecto proyectoDetProyecto; 
 	
 	@Column(nullable = false)
-	private BigDecimal costo;
-	
+	private BigDecimal costo;	
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 	@Column(length = 30, nullable = false)
 	private String estado;
 	
-	
-	public Integer getIdOrdenDetalle() {
-		return idOrdenDetalle;
+	public Integer getIdProyectoDetalle() {
+		return idProyectoDetalle;
 	}
-	public void setIdOrdenDetalle(Integer idOrdenDetalle) {
-		this.idOrdenDetalle = idOrdenDetalle;
+	public void setIdProyectoDetalle(Integer idProyectoDetalle) {
+		this.idProyectoDetalle = idProyectoDetalle;
 	}
-	public Orden getOrdendetalleOrden() {
-		return ordendetalleOrden;
+	public Cliente getProyectoDetCliente() {
+		return proyectoDetCliente;
 	}
-	public void setOrdendetalleOrden(Orden ordendetalleOrden) {
-		this.ordendetalleOrden = ordendetalleOrden;
+	public void setProyectoDetCliente(Cliente proyectoDetCliente) {
+		this.proyectoDetCliente = proyectoDetCliente;
 	}
-	public Proveedor getOrdendetalleProveedor() {
-		return ordendetalleProveedor;
+	public Proveedor getProyectoDetProveedor() {
+		return proyectoDetProveedor;
 	}
-	public void setOrdendetalleProveedor(Proveedor ordendetalleProveedor) {
-		this.ordendetalleProveedor = ordendetalleProveedor;
+	public void setProyectoDetProveedor(Proveedor proyectoDetProveedor) {
+		this.proyectoDetProveedor = proyectoDetProveedor;
+	}
+	public Proyecto getProyectoDetProyecto() {
+		return proyectoDetProyecto;
+	}
+	public void setProyectoDetProyecto(Proyecto proyectoDetProyecto) {
+		this.proyectoDetProyecto = proyectoDetProyecto;
 	}
 	public BigDecimal getCosto() {
 		return costo;

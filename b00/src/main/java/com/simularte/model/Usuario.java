@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -16,24 +18,25 @@ public class Usuario {
 	@Id @GeneratedValue @Column(name = "idusuario")	
 	private Integer idUsuario;
 	
+	@ManyToOne
+	@JoinColumn(name = "idempresa", nullable = false)
+	private Empresa usuarioEmpresa;
+	
 	//References
-	@OneToOne(mappedBy = "usuario")
-	private Perfil perfil;	
-	@OneToOne(mappedBy = "usuario")
-	private Empresa empresa;	
+	@OneToOne(mappedBy = "perfilUsuario")
+	private Perfil usuarioPerfil;
+	
 	@OneToMany(mappedBy = "proyectoUsuario")
-	private Collection<Proyecto> usuPro;	
+	private Collection<Proyecto> proyectosUsu;
 	
 	@Column(length = 60, nullable = false)
-	private String email;
+	private String email;	
 	@Column(length = 60, nullable = false)
-	private String password;
-	
+	private String password;	
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 	@Column(length = 30, nullable = false)
 	private String estado;
-	
 	
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -41,23 +44,23 @@ public class Usuario {
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	public Perfil getPerfil() {
-		return perfil;
+	public Empresa getUsuarioEmpresa() {
+		return usuarioEmpresa;
 	}
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
+	public void setUsuarioEmpresa(Empresa usuarioEmpresa) {
+		this.usuarioEmpresa = usuarioEmpresa;
 	}
-	public Empresa getEmpresa() {
-		return empresa;
+	public Perfil getUsuarioPerfil() {
+		return usuarioPerfil;
 	}
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public void setUsuarioPerfil(Perfil usuarioPerfil) {
+		this.usuarioPerfil = usuarioPerfil;
 	}
-	public Collection<Proyecto> getUsuPro() {
-		return usuPro;
+	public Collection<Proyecto> getProyectosUsu() {
+		return proyectosUsu;
 	}
-	public void setUsuPro(Collection<Proyecto> usuPro) {
-		this.usuPro = usuPro;
+	public void setProyectosUsu(Collection<Proyecto> proyectosUsu) {
+		this.proyectosUsu = proyectosUsu;
 	}
 	public String getEmail() {
 		return email;
@@ -83,4 +86,5 @@ public class Usuario {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
 }

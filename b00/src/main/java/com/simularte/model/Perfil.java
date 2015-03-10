@@ -16,9 +16,10 @@ public class Perfil {
 	@Id @GeneratedValue @Column(name = "idperfil")
 	private Integer idPerfil;
 	
-	//References
-	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "idusuario")
-	private Usuario usuario;
+	//References	
+	@OneToOne(cascade = CascadeType.ALL) 
+	@JoinColumn(name = "idusuario", nullable = false)
+	private Usuario perfilUsuario;
 	
 	@Column(name = "primernombre", length = 90, nullable = true)
 	private String primerNombre;
@@ -54,18 +55,17 @@ public class Perfil {
 	@Column(length = 30, nullable = false)
 	private String estado;
 	
-	
 	public Integer getIdPerfil() {
 		return idPerfil;
 	}
 	public void setIdPerfil(Integer idPerfil) {
 		this.idPerfil = idPerfil;
 	}
-	public Usuario getUsuario() {
-		return usuario;
+	public Usuario getPerfilUsuario() {
+		return perfilUsuario;
 	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setPerfilUsuario(Usuario perfilUsuario) {
+		this.perfilUsuario = perfilUsuario;
 	}
 	public String getPrimerNombre() {
 		return primerNombre;
@@ -163,4 +163,5 @@ public class Perfil {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
 }

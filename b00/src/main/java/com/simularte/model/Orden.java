@@ -2,7 +2,6 @@ package com.simularte.model;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,31 +9,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Orden {
 
 	@Id @GeneratedValue @Column(name = "idorden")
-	private Integer idOrden;
+	private Integer idOrden;	
 	
-	//References
-	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "idproyecto")
-	private Proyecto proyecto;
-	@OneToMany(mappedBy = "ordendetalleOrden")
-	private Collection<ProyectoDetalle> ordDet;
+	//References	
+	@OneToOne(cascade = CascadeType.ALL) 
+	@JoinColumn(name = "idproyecto", nullable = false)
+	private Proyecto ordenProyecto;
+	
+	@OneToOne(mappedBy = "facturaOrden")
+	private Factura ordenFactura;
 	
 	@Column(length = 30, nullable = false)
 	private String codigo;
 	@Column(nullable = false)
-	private BigDecimal oferta;
-	
+	private BigDecimal oferta;	
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 	@Column(length = 30, nullable = false)
 	private String estado;
-	
 	
 	public Integer getIdOrden() {
 		return idOrden;
@@ -42,17 +40,17 @@ public class Orden {
 	public void setIdOrden(Integer idOrden) {
 		this.idOrden = idOrden;
 	}
-	public Proyecto getProyecto() {
-		return proyecto;
+	public Proyecto getOrdenProyecto() {
+		return ordenProyecto;
 	}
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
+	public void setOrdenProyecto(Proyecto ordenProyecto) {
+		this.ordenProyecto = ordenProyecto;
 	}
-	public Collection<ProyectoDetalle> getOrdDet() {
-		return ordDet;
+	public Factura getOrdenFactura() {
+		return ordenFactura;
 	}
-	public void setOrdDet(Collection<ProyectoDetalle> ordDet) {
-		this.ordDet = ordDet;
+	public void setOrdenFactura(Factura ordenFactura) {
+		this.ordenFactura = ordenFactura;
 	}
 	public String getCodigo() {
 		return codigo;
@@ -78,4 +76,5 @@ public class Orden {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
 }

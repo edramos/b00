@@ -3,14 +3,11 @@ package com.simularte.model;
 import java.sql.Timestamp;
 import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Empresa {
@@ -18,11 +15,18 @@ public class Empresa {
 	@Id @GeneratedValue @Column(name = "idempresa")
 	private Integer idEmpresa;
 	
-	//References
-	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "idusuario")
-	private Usuario usuario;
+	//References	
+	@OneToMany(mappedBy = "usuarioEmpresa")
+	private Collection<Usuario> usuariosEmp;
+	
 	@OneToMany(mappedBy = "oficinaEmpresa")
-	private Collection<Oficina> ofiEmp;
+	private Collection<Oficina> oficinasEmp;
+	
+	@OneToMany(mappedBy = "clienteEmpresa")
+	private Collection<Cliente> clientesEmp;
+	
+	@OneToMany(mappedBy = "proveedorEmpresa")
+	private Collection<Proveedor> proveedoresEmp;
 	
 	@Column(length = 90, nullable = true)
 	private String nombre;
@@ -38,24 +42,35 @@ public class Empresa {
 	@Column(length = 30, nullable = false)
 	private String estado;
 	
-	
 	public Integer getIdEmpresa() {
 		return idEmpresa;
 	}
 	public void setIdEmpresa(Integer idEmpresa) {
 		this.idEmpresa = idEmpresa;
 	}
-	public Usuario getUsuario() {
-		return usuario;
+	public Collection<Usuario> getUsuariosEmp() {
+		return usuariosEmp;
 	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuariosEmp(Collection<Usuario> usuariosEmp) {
+		this.usuariosEmp = usuariosEmp;
 	}
-	public Collection<Oficina> getOfiEmp() {
-		return ofiEmp;
+	public Collection<Oficina> getOficinasEmp() {
+		return oficinasEmp;
 	}
-	public void setOfiEmp(Collection<Oficina> ofiEmp) {
-		this.ofiEmp = ofiEmp;
+	public void setOficinasEmp(Collection<Oficina> oficinasEmp) {
+		this.oficinasEmp = oficinasEmp;
+	}
+	public Collection<Cliente> getClientesEmp() {
+		return clientesEmp;
+	}
+	public void setClientesEmp(Collection<Cliente> clientesEmp) {
+		this.clientesEmp = clientesEmp;
+	}
+	public Collection<Proveedor> getProveedoresEmp() {
+		return proveedoresEmp;
+	}
+	public void setProveedoresEmp(Collection<Proveedor> proveedoresEmp) {
+		this.proveedoresEmp = proveedoresEmp;
 	}
 	public String getNombre() {
 		return nombre;
@@ -93,4 +108,6 @@ public class Empresa {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	
 }

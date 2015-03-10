@@ -1,6 +1,7 @@
 package com.simularte.model;
 
 import java.sql.Timestamp;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,21 +9,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Proyecto {
 
 	@Id @GeneratedValue @Column(name = "idproyecto")	
-	private Integer idProyecto;
+	private Integer idProyecto;	
 	
 	//References
-	@ManyToOne @JoinColumn(name = "idusuario")
-	private Usuario proyectoUsuario;	
-	@OneToOne(mappedBy = "proyecto")
-	private Cliente cliente;
-	@OneToOne(mappedBy = "proyecto")
-	private Orden orden;
+	@ManyToOne 
+	@JoinColumn(name = "idusuario", nullable = false)
+	private Usuario proyectoUsuario;
+		
+	@OneToOne(mappedBy = "ordenProyecto")
+	private Orden proyectoOrden;
+	
+	@OneToMany(mappedBy = "proyectoDetProyecto")
+	private Collection<ProyectoDetalle> proyectosDetalleProy;
   	
 	@Column(length = 30, nullable = false)
 	private String codigo;
@@ -37,13 +42,11 @@ public class Proyecto {
 	@Column(length = 60, nullable = true)
 	private String ciudad;
 	@Column(length = 60, nullable = true)
-	private String departamento;
-	
+	private String departamento;	
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 	@Column(length = 30, nullable = false)
 	private String estado;
-	
 	
 	public Integer getIdProyecto() {
 		return idProyecto;
@@ -57,17 +60,18 @@ public class Proyecto {
 	public void setProyectoUsuario(Usuario proyectoUsuario) {
 		this.proyectoUsuario = proyectoUsuario;
 	}
-	public Cliente getCliente() {
-		return cliente;
+	public Orden getProyectoOrden() {
+		return proyectoOrden;
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setProyectoOrden(Orden proyectoOrden) {
+		this.proyectoOrden = proyectoOrden;
 	}
-	public Orden getOrden() {
-		return orden;
+	public Collection<ProyectoDetalle> getProyectosDetalleProy() {
+		return proyectosDetalleProy;
 	}
-	public void setOrden(Orden orden) {
-		this.orden = orden;
+	public void setProyectosDetalleProy(
+			Collection<ProyectoDetalle> proyectosDetalleProy) {
+		this.proyectosDetalleProy = proyectosDetalleProy;
 	}
 	public String getCodigo() {
 		return codigo;
@@ -123,4 +127,5 @@ public class Proyecto {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
 }

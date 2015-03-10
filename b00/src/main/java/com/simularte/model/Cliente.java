@@ -1,14 +1,15 @@
 package com.simularte.model;
 
 import java.sql.Timestamp;
+import java.util.Collection;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -17,17 +18,19 @@ public class Cliente {
 	private Integer idCliente;
 	
 	//References
-	@OneToOne(cascade = CascadeType.ALL) @JoinColumn(name = "idproyecto")
-	private Proyecto proyecto;
+	@ManyToOne 
+	@JoinColumn(name = "idempresa", nullable = false)
+	private Empresa clienteEmpresa;
+	
+	@OneToMany(mappedBy = "proyectoDetCliente")
+	private Collection<ProyectoDetalle> proyectosDetalleCli;
 	
 	@Column(length = 180, nullable = true)
-	private String nombre;
-	
+	private String nombre;	
 	@Column(name = "fechacreacion", nullable = false)
 	private Timestamp fechaCreacion;
 	@Column(length = 30, nullable = false)
 	private String estado;
-	
 	
 	public Integer getIdCliente() {
 		return idCliente;
@@ -35,11 +38,18 @@ public class Cliente {
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
-	public Proyecto getProyecto() {
-		return proyecto;
+	public Empresa getClienteEmpresa() {
+		return clienteEmpresa;
 	}
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
+	public void setClienteEmpresa(Empresa clienteEmpresa) {
+		this.clienteEmpresa = clienteEmpresa;
+	}
+	public Collection<ProyectoDetalle> getProyectosDetalleCli() {
+		return proyectosDetalleCli;
+	}
+	public void setProyectosDetalleCli(
+			Collection<ProyectoDetalle> proyectosDetalleCli) {
+		this.proyectosDetalleCli = proyectosDetalleCli;
 	}
 	public String getNombre() {
 		return nombre;
@@ -59,4 +69,5 @@ public class Cliente {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
 }

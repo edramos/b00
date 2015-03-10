@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService{
 			System.out.println(usuario.getEmail() + ", " + usuario.getPassword());
 			Perfil perfil = new Perfil();
 			
-			perfil.setUsuario(usuario);
+			perfil.setPerfilUsuario(usuario);
 			perfil.setRol("administrador");
 			perfil.setFechaCreacion(Dates.fechaCreacion());
 			perfil.setEstado("enabled");
@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService{
 			System.out.println(perfil.getEstado());
 			Empresa empresa = new Empresa();
 			
-			empresa.setUsuario(usuario);
 			empresa.setFechaCreacion(Dates.fechaCreacion());
 			empresa.setEstado("enabled");
 			

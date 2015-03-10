@@ -16,7 +16,8 @@ public class Oficina {
 	private Integer idOficina;
 	
 	//References
-	@ManyToOne @JoinColumn(name = "idempresa")
+	@ManyToOne 
+	@JoinColumn(name = "idempresa", nullable = false)
 	private Empresa oficinaEmpresa;
 	
 	@Column(length = 90, nullable = true)
@@ -36,7 +37,6 @@ public class Oficina {
 	private Timestamp fechaCreacion;
 	@Column(length = 30, nullable = false)
 	private String estado;
-	
 	
 	public Integer getIdOficina() {
 		return idOficina;
